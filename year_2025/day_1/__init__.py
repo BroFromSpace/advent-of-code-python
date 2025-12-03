@@ -74,5 +74,3 @@ def part_2() -> int:
             dial_position = new_position % 100
 
     return zero_crossings
-
-print(part_1(), part_2())
