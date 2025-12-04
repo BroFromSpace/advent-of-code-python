@@ -13,10 +13,12 @@ Part 2: Count every time the dial passes through 0 (not just final positions)
 
 from pathlib import Path
 
+FILE_DIR = Path(__file__).parent
+
 
 def part_1() -> int:
     """Count how many times the dial lands on 0 after each rotation."""
-    with Path("./input.txt").open() as f:
+    with Path(FILE_DIR / "input.txt").open() as f:
         instructions = f.readlines()
 
     dial_position = 50
@@ -50,7 +52,7 @@ def part_2() -> int:
        Why check dial_position > 0? If we're already at 0, rotating left goes
        straight to 99, 98, etc. without crossing 0 again.
     """
-    with Path("./input.txt").open() as f:
+    with Path(FILE_DIR / "input.txt").open() as f:
         instructions = f.readlines()
 
     dial_position = 50
@@ -74,3 +76,8 @@ def part_2() -> int:
             dial_position = new_position % 100
 
     return zero_crossings
+
+
+if __name__ == "__main__":
+    print(f"Part 1: {part_1()}")
+    print(f"Part 2: {part_2()}")
